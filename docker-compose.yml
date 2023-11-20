@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  fe_cap:
+    image: node:20
+    user: node
+    working_dir: /home/node/app/my-app
+    ports:
+      - 8080:8080
+      - 3000:3000
+    command: "npm run start"
+    volumes:
+      - ./:/home/node/app/
