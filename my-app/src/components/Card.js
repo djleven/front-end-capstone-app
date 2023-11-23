@@ -1,5 +1,5 @@
 const Card = ({ title, price, description, imageSrc }) => {
-    const seeMoreText = 'Order a delivery';
+    const seeMoreText = 'Order now';
   return (
       <div className='card'>
           <div className="card-image-content">

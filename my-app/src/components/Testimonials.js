@@ -4,7 +4,7 @@ import reviewer2 from "../assets/images/Reviewer2.png";
 import reviewer3 from "../assets/images/Reviewer3.png";
 import reviewer4 from "../assets/images/Reviewer4.png";
 
-const Highlights = () => {
+const Testimonials = () => {
 
   const testimonials = [
     {
@@ -33,14 +33,16 @@ const Highlights = () => {
       }
   ];
 
-    const menuItemsHtml = testimonials.map((reviewer) => {
+    const menuItemsHtml = testimonials.map((reviewer, index) => {
         return (
+          <span key={index}>
             <Testimonial
                 name={reviewer.name}
                 imageSrc={reviewer.img}
                 rating={reviewer.rating}
                 text={reviewer.text}
             />
+           </span>
         )
     });
 
@@ -55,4 +57,4 @@ const Highlights = () => {
       </section>
   )
 };
-export default Highlights;
+export default Testimonials;

@@ -1,11 +1,10 @@
-import MobileNavigation from './MobileNavigation.js';
 import Navigation from './Navigation.js';
 import logo from '../assets/images/logo.svg';
 
 const Header = () => {
     return (
         <header className="App-Header">
-            <MobileNavigation />
+            <Navigation isMobile="1" />
             <div className="logo-img">
                 <img src={logo} role="logo" className="logo" alt="logo" />
             </div>

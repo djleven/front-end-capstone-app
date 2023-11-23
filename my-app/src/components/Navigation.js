@@ -1,15 +1,35 @@
+import { NavLink } from "react-router-dom";
 import { mainMenuItems } from '../constants.js'
+
+const Nav = ({isMobile}) => {
 
   const menuItemsHtml = mainMenuItems.map((element, index) => {
     return (
-        <a href={`#${element.url}`} key={index}>
+      element.url.includes("#") ?
+        <a href={`/${element.url}`} key={index}>
           {element.label}
         </a>
+      :
+        <NavLink to={`/${element.url}`}>{element.label}</NavLink>
     )
   });
 
-const Nav = () => {
+  if (isMobile) {
     return (
+      <nav className="App-Mobile-Nav" role="navigation">
+        <div className="menuToggle">
+          <input type="checkbox" />
+          <span></span>
+          <span></span>
+          <span></span>
+          <ul className="mobile-menu">
+              {menuItemsHtml}
+          </ul>
+      </div>
+    </nav>
+    )
+  }
+  return (
         <nav className="App-Nav" role="navigation">
             <div className="menu-links">
               {menuItemsHtml}

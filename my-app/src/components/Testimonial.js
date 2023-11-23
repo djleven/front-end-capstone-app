@@ -1,5 +1,5 @@
 const Testimonial = ({ name, rating, text, imageSrc }) => {
-    const seeMoreText = 'Order a delivery';
+
   return (
       <div className='testimonial'>
           <div className="testimonial-image-content">

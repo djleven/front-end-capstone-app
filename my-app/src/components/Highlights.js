@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Card from "./Card.js";
 import salad from "../assets/images/salad.jpg";
 import dessert from "../assets/images/dessert.jpg";
@@ -29,15 +30,17 @@ export const dishes = [
   ];
 
 const Highlights = () => {
-
-    const menuItemsHtml = dishes.map((dish) => {
+    const navigate = useNavigate();
+    const menuItemsHtml = dishes.map((dish, index) => {
         return (
+          <span key={index}>
             <Card
                 title={dish.label}
                 imageSrc={dish.img}
                 price={dish.price}
                 description={dish.desc}
             />
+          </span>
         )
     });
 
@@ -45,7 +48,7 @@ const Highlights = () => {
       <section className="App-Highlights">
         <div className="specials-header">
             <h3>Specials</h3>
-            <button className="button dark">
+            <button className="button dark" onClick={() => navigate('menu')}>
                 Online Menu
                 </button>
             </div>

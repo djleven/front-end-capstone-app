@@ -1,5 +1,5 @@
+import Navigation from './Navigation.js';
 import logo from '../assets/images/logo-footer.png';
-import { mainMenuItems } from '../constants.js'
 
 const addressItems = [
     {
@@ -25,39 +25,49 @@ const addressItems = [
       },
   ];
 
-  const menuItemsHtml = mainMenuItems.map((element, index) => {
-    return (
-        <a href={`#${element.url}`} key={index}>
-          {element.label}
-        </a>
-    )
-  });
 
-  const contactItemsHtml = addressItems.map((element, index) => {
+const socialMediaItems = [
+  {
+      label: "instagram",
+      url: "https://www.instagram.com/",
+    },
+    {
+      label: "facebook",
+      url: "https://www.facebook.com/",
+    },
+    {
+      label: "twitter",
+      url: "https://twitter.com/",
+    },
+];
+
+function createLinks(items) {
+  return items.map((element, index) => {
     return (
         element.url ?
         <a href={`${element.url}`} key={index} target="_blank">
           {element.label}
         </a>
-        : <span>{element.label}</span>
+        : <span key={index}>{element.label}</span>
     )
   });
+}
 
 const Footer = () => {
     return (
         <footer className="App-Footer">
-               <div className="logo-img">
-                <img src={logo} role="logo" className="logo" alt="logo" />
+            <div className="logo-img">
+              <img src={logo} role="logo" className="logo" alt="logo" />
             </div>
             <div className="menu-links">
-              {menuItemsHtml}
+              <Navigation rawOutput="1" />
+            </div>
+            <div className="menu-links contact">
+              {createLinks(addressItems)}
               </div>
-              <div className="menu-links contact">
-              {contactItemsHtml}
-              </div>
-              <div className="menu-links">
-              {menuItemsHtml}
-              </div>
+            <div className="menu-links">
+              {createLinks(socialMediaItems)}
+            </div>
         </footer>
     )
   };

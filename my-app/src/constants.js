@@ -1,11 +1,11 @@
 export const mainMenuItems = [
     {
         label: "Home",
-        url: "home",
+        url: "",
       },
     {
         label: "About",
-        url: "about",
+        url: "#about",
       },
       {
         label: "Menu",
@@ -13,7 +13,7 @@ export const mainMenuItems = [
       },
       {
         label: "Reservations",
-        url: "reserve",
+        url: "booking",
       },
       {
         label: "Order Online",
