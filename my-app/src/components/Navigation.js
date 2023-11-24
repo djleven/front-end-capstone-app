@@ -1,18 +1,29 @@
 import { NavLink } from "react-router-dom";
 import { mainMenuItems } from '../constants.js'
 
-const Nav = ({isMobile}) => {
+const Nav = ({isMobile, rawOutput}) => {
+  let uniqueKeyPrefix = 'a-';
+  if(rawOutput) {
+    uniqueKeyPrefix = 'c-';
+  } else if(isMobile) {
+    uniqueKeyPrefix = 'b-';
+  }
 
   const menuItemsHtml = mainMenuItems.map((element, index) => {
+    const key = uniqueKeyPrefix + index
     return (
       element.url.includes("#") ?
-        <a href={`/${element.url}`} key={index}>
+        <a href={`/${element.url}`} key={key}>
           {element.label}
         </a>
       :
-        <NavLink to={`/${element.url}`}>{element.label}</NavLink>
+        <NavLink key={key} to={`/${element.url}`}>{element.label}</NavLink>
     )
   });
+
+  if (rawOutput) {
+    return menuItemsHtml;
+  }
 
   if (isMobile) {
     return (
