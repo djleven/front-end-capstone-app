@@ -47,7 +47,7 @@ const Highlights = () => {
   return (
       <section className="App-Highlights">
         <div className="specials-header">
-            <h3>Specials</h3>
+            <h2>Specials</h2>
             <button className="button dark" onClick={() => navigate('menu')}>
                 Online Menu
                 </button>

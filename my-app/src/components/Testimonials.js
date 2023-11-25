@@ -48,8 +48,8 @@ const Testimonials = () => {
 
   return (
       <section className="App-Testimonials">
-        <div className="specials-header">
-            <h3>Testimonials</h3>
+        <div className="testimonials-header">
+            <h2>Testimonials</h2>
             </div>
             <div className="reviews">
                 {menuItemsHtml}

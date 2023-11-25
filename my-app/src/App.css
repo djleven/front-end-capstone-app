@@ -7,6 +7,10 @@
   src:  url('./assets/fonts/Karla-Regular.ttf') format('truetype');
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Markazi-Text';
   font-size: 16pt;
@@ -15,25 +19,25 @@ body {
 }
 
 h1 {
-  font-size: 40pt;
+  font-size: 3.33rem;
 }
 h2 {
-  font-size: 30pt;
+  font-size: 2.5rem;
 }
 
-/* h3 {
-
+h3 {
+  font-size: 2.1rem;
 }
 h4 {
-
+  font-size: 1.8rem;
 }
-h5 [
-
-]
+h5 {
+  font-size: 1.5rem;
+}
 
 h6 {
-
-} */
+  font-size: 1.2rem;
+}
 
 p {
   font-family: "Karla";
@@ -52,9 +56,11 @@ p {
   font-size: 16px!important;
   font-weight: bold;
   border-radius: 16px;
+  z-index: 100;
+  position: relative;
 }
 
-.button:hover {
+.button:hover:not(:disabled) {
   background-color: #ededed;
   cursor: pointer;
 }
@@ -74,6 +80,10 @@ p {
 
 .menu-links {
   display: flex;
+}
+
+.menu-links a {
+  z-index: 100;
 }
 
 .center-text {
@@ -235,6 +245,7 @@ p {
 }
 
 .App-Highlights {
+  background-color: unset;
   padding: 2rem;
 }
 
@@ -275,8 +286,9 @@ section > div {
   align-self: center;
 }
 
-.specials-header h3 {
+.specials-header h2 {
   margin-right: auto;
+  color: #495E57
 }
 
 .card {
@@ -336,10 +348,6 @@ section > div {
   background-color: #fff;
 }
 
-.not-found {
-  background-color: #495E57;
-  color: #fff
-}
 .hero {
   display: flex;
   align-items: center;
@@ -390,6 +398,7 @@ section > div {
   color: white;
   gap: 1rem;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .App-Footer .menu-links {
@@ -469,7 +478,7 @@ section > div {
 
 
 @media only screen and (max-width: 567px) {
-  .menu-links.contact span {
+  .menu-links.social {
     display: none;
   }
   .App-Footer {
@@ -491,4 +500,59 @@ section > div {
     border-top: none;
     border-bottom: none;
   }
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0
+}
+.Field {
+  padding: 5px 0;
+  display: flex;
+}
+.Field label {
+  padding: 15px;
+  width: 200px;
+  display: block;
+}
+input,
+select,
+fieldset span {
+  padding: 15px;
+  border-radius: 3px;
+  border: 2px solid #DADDEC;
+  margin: 5px 0 10px;
+  font-size: 1rem;
+  display: block;
+  z-index: 100;
+}
+
+button:disabled {
+  background-color: darkgray;
+}
+
+section {
+  background-color: #495E57;
+  color: #fff
+}
+
+section.reservation .hero img {
+  margin-left: 0;
+  opacity: 30%;
+  height: 100%;
+  max-width: unset;
+  max-height: unset;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+section.reservation .hero .txt, section.reservation  .hero div  {
+  max-width: unset!important;
+}
+
+div.error {
+  color:#ee9972;
+  text-align: right;
 }

@@ -1,18 +1,70 @@
-import { useReducer } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useReducerWithThunk } from '../state/useReducerWithThunk.js'
+import { fetchAPI, submitAPI } from '../utils/mockedAPi'
+import Hero from "../components/Hero.js";
+import img from '../assets/images/reserved.png'
 import MainLayout from '../layouts/Main.js'
 import BookingForm from '../components/BookingForm.js'
-import availableTimesReducer from '../state/availableTimesReducer.js'
+
+export const FETCH_SUCCESS = 'FETCH_SUCCESS'
+
+function updateTimeSlots(date) {
+    return async function fetchUserThunk(dispatch) {
+        const slots = await fetchAPI(date);
+        dispatch({ type: 'FETCH_SUCCESS', value: slots })
+    }
+}
+
+const availableTimesReducer = (state, action) => {
+    switch (action.type) {
+        case FETCH_SUCCESS:
+            state = action.value
+            return state
+        default:
+            return state;
+    }
+};
 
 const BookingPage = () => {
-    const init = [ '17:00','18:00','19:00','20:00', '21:00', '22:00'];
-    const [state, dispatch] = useReducer(availableTimesReducer, init);
     const location = useLocation();
+    const navigate = useNavigate();
+
+    const [state, dispatch] = useReducerWithThunk(availableTimesReducer, []);
+
+    function getTimeSlots(date) {
+        dispatch(updateTimeSlots(date));
+    }
+
+    useEffect(() => {
+        getTimeSlots(new Date().toISOString().substr(0, 10))
+    }, []);
+
+    const submitForm = formData => {
+        const response = submitAPI(formData);
+        if (response) {
+            navigate('/booking-confirmed', { state: formData });
+        }
+    };
+
     return (
+
         <MainLayout location={location.pathname}>
-            <BookingForm dispatch={dispatch} availableTimes={state}/>
+            <Hero
+                className="reservation"
+                title="Reserve a Table"
+                subtitle="We can't wait to serve you!"
+                description={<BookingForm getTimeSlots={getTimeSlots} availableTimes={state} submitForm={submitForm} />}
+            >
+                <Hero.Action>
+                </Hero.Action>
+                <Hero.Image>
+                    <img src={img} alt="booking image" />
+                </Hero.Image>
+            </Hero>
+
         </MainLayout>
-        )
-  };
+    )
+};
 
 export default BookingPage;

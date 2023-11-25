@@ -59,13 +59,13 @@ const Footer = () => {
             <div className="logo-img">
               <img src={logo} role="logo" className="logo" alt="logo" />
             </div>
-            <div className="menu-links">
+            <div className="menu-links main">
               <Navigation rawOutput="1" />
             </div>
             <div className="menu-links contact">
               {createLinks(addressItems)}
               </div>
-            <div className="menu-links">
+            <div className="menu-links social">
               {createLinks(socialMediaItems)}
             </div>
         </footer>
