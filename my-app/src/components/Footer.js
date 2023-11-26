@@ -45,7 +45,7 @@ function createLinks(items) {
   return items.map((element, index) => {
     return (
         element.url ?
-        <a href={`${element.url}`} key={index} target="_blank">
+        <a href={`${element.url}`} key={index} target="_blank" rel="noreferrer">
           {element.label}
         </a>
         : <span key={index}>{element.label}</span>
@@ -57,7 +57,7 @@ const Footer = () => {
     return (
         <footer className="App-Footer">
             <div className="logo-img">
-              <img src={logo} role="logo" className="logo" alt="logo" />
+              <img src={logo} aria-label="logo" className="logo" alt="logo" />
             </div>
             <div className="menu-links main">
               <Navigation rawOutput="1" />

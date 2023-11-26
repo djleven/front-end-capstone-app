@@ -30,7 +30,7 @@ const NotFoundPage = () => {
                 <Hero.Action>
                 </Hero.Action>
                 <Hero.Image>
-                    <img src={img} alt="booking confirmed image" />
+                    <img src={img} alt="booking confirmed" />
                 </Hero.Image>
             </Hero>
         </MainLayout>

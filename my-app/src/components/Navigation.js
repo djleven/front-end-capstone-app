@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 import { mainMenuItems } from '../constants.js'
 
 const Nav = ({isMobile, rawOutput}) => {
+  const [state, setState] = useState(false)
+
+  const setMobileNavState = () => setState(!state)
   let uniqueKeyPrefix = 'a-';
   if(rawOutput) {
     uniqueKeyPrefix = 'c-';
@@ -27,22 +31,25 @@ const Nav = ({isMobile, rawOutput}) => {
 
   if (isMobile) {
     return (
-      <nav className="App-Mobile-Nav" role="navigation">
-        <div className="menuToggle">
-          <input type="checkbox" />
+      <nav className="App-Mobile-Nav">
+        <button
+          className={state ? "menuToggle open" : "menuToggle"}
+          onClick={setMobileNavState}
+          aria-expanded={state}
+        >
           <span></span>
           <span></span>
           <span></span>
-          <ul className="mobile-menu">
+          <ul className="mobile-menu" role="menu">
               {menuItemsHtml}
           </ul>
-      </div>
+      </button>
     </nav>
     )
   }
   return (
-        <nav className="App-Nav" role="navigation">
-            <div className="menu-links">
+        <nav className="App-Nav">
+            <div className="menu-links" role="menu">
               {menuItemsHtml}
             </div>
         </nav>

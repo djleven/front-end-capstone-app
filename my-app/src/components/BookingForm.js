@@ -96,6 +96,8 @@ const BookingForm = ({ getTimeSlots, availableTimes, submitForm }) => {
                         id="guestNumber"
                             value={guestNumber}
                             type="number"
+                            min="1"
+                            max="10"
                             onChange={handleGuestNumberChange}
                             placeholder="Number of guests"
                         />
@@ -109,7 +111,12 @@ const BookingForm = ({ getTimeSlots, availableTimes, submitForm }) => {
                         </select>
                     </div>
                     {errorMsg ? <div class="error">{errorMsg}</div> : ''}
-                    <button type="submit" className="button" disabled={!getIsFormValid()}>
+                    <button
+                        type="submit"
+                        className="button"
+                        disabled={!getIsFormValid()}
+                        aria-disabled={!getIsFormValid()}
+                    >
                         Make your reservation
                     </button>
                 </fieldset>

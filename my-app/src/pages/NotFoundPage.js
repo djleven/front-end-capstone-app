@@ -16,12 +16,12 @@ const NotFoundPage = () => {
             description="Sorry, we can't seem to find this page!"
           >
             <Hero.Action>
-              <button className="button" onClick={() => navigate(-1)}>
+              <button className="button" onClick={() => navigate(-1)} aria-disabled="false">
                 Go back
               </button>
             </Hero.Action>
             <Hero.Image>
-              <img src={not_found_img} alt="page not found image"/>
+              <img src={not_found_img} alt="page not found"/>
             </Hero.Image>
           </Hero>
         </MainLayout>

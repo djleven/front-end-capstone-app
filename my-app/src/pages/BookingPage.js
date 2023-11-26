@@ -59,7 +59,7 @@ const BookingPage = () => {
                 <Hero.Action>
                 </Hero.Action>
                 <Hero.Image>
-                    <img src={img} alt="booking image" />
+                    <img src={img} alt="booking" />
                 </Hero.Image>
             </Hero>
 

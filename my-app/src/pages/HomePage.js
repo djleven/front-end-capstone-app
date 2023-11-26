@@ -26,7 +26,7 @@ const HomePage = () => {
             </button>
           </Hero.Action>
           <Hero.Image>
-            <img src={hero_image} alt="restaurant image"/>
+            <img src={hero_image} alt="restaurant"/>
           </Hero.Image>
         </Hero>
 

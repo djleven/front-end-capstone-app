@@ -48,7 +48,7 @@ const Highlights = () => {
       <section className="App-Highlights">
         <div className="specials-header">
             <h2>Specials</h2>
-            <button className="button dark" onClick={() => navigate('menu')}>
+            <button className="button dark" onClick={() => navigate('menu')} aria-disabled="false">
                 Online Menu
                 </button>
             </div>

@@ -21,7 +21,7 @@ const Card = ({ title, price, description, imageSrc }) => {
                   {description}
               </p>
               <div className='more-link'>
-                  <button className="button">
+                  <button className="button" aria-disabled="false">
                       {seeMoreText}
                   </button>
               </div>

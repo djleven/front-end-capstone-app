@@ -16,7 +16,7 @@ const About = () => {
               <Hero.Action>
               </Hero.Action>
               <Hero.Image>
-                <img src={chef_image} alt="about us image"/>
+                <img src={chef_image} alt="about us"/>
               </Hero.Image>
             </Hero>
           </section>

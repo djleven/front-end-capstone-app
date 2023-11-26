@@ -6,7 +6,7 @@ const Header = () => {
         <header className="App-Header">
             <Navigation isMobile="1" />
             <div className="logo-img">
-                <img src={logo} role="logo" className="logo" alt="logo" />
+                <img src={logo} aria-label="logo" className="logo" alt="logo" />
             </div>
             <Navigation />
       </header>

@@ -122,6 +122,32 @@ p {
 
 /* mobile nav */
 
+/* browser resets */
+.App-Mobile-Nav button.menuToggle {
+  color: unset;
+  letter-spacing: unset;
+  word-spacing: unset;
+  line-height: unset;
+  text-transform: unset;
+  text-indent: unset;
+  text-shadow: unset;
+  display: unset;
+  text-align: unset;
+  align-items: unset;
+  cursor: unset;
+  box-sizing: unset;
+  background-color: unset;
+  margin: unset;
+  padding-block: unset;
+  padding-inline: unset;
+  border-width: unset;
+  border-style: unset;
+  border-color: unset;
+  border-image: unset;
+  padding: 8px 8px 4px;
+}
+
+
 .App-Mobile-Nav {
   display: none;
 }
@@ -130,7 +156,7 @@ p {
 {
   display: block;
   position: absolute;
-  top: 53px;
+  top: 45px;
   left: 30px;
   z-index: 1;
   -webkit-user-select: none;
@@ -149,20 +175,6 @@ p {
 .menuToggle a:hover
 {
   color: #ee9972;
-}
-
-.menuToggle input
-{
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  cursor: pointer;
-  opacity: 0;
-  z-index: 2;
-  -webkit-touch-callout: none;
 }
 
 .menuToggle span
@@ -191,20 +203,20 @@ p {
   transform-origin: 0% 100%;
 }
 
-.menuToggle input:checked ~ span
+.menuToggle.open > span
 {
   opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
+  transform: rotate(45deg) translate(-3px, -3px);
   background: #232323;
 }
 
-.menuToggle input:checked ~ span:nth-last-child(3)
+.menuToggle.open > span:nth-last-child(3)
 {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-.menuToggle input:checked ~ span:nth-last-child(2)
+.menuToggle.open > span:nth-last-child(2)
 {
   transform: rotate(-45deg) translate(0, -1px);
 }
@@ -231,7 +243,7 @@ p {
   font-size: 22px;
 }
 
-.menuToggle input:checked ~ ul
+.menuToggle.open > ul
 {
   transform: none;
 }
