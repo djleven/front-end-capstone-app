@@ -30,7 +30,7 @@ const BookingPage = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const [state, dispatch] = useReducerWithThunk(availableTimesReducer, []);
+    const [state, dispatch] = useReducerWithThunk(availableTimesReducer, null);
 
     function getTimeSlots(date) {
         dispatch(updateTimeSlots(date));

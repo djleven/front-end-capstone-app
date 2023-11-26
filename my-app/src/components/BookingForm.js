@@ -11,17 +11,24 @@ const BookingForm = ({ getTimeSlots, availableTimes, submitForm }) => {
     const maxDate = convertDate(new Date(currentRawDate.setDate(currentRawDate.getDate() + 30)));
 
     const [date, setDay] = useState(currentDate)
-    const [time, setTime] = useState(availableTimes[0])
+    const [time, setTime] = useState(availableTimes ? availableTimes[0] : null)
     const [guestNumber, setGuestNumber] = useState("2")
     const [occasion, setOccasion] = useState("")
 
     const [errorMsg, setErrorMsg] = useState("")
+    const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setTimeout(() => {
             setErrorMsg("")
           }, 9000);
       }, [errorMsg]);
+
+
+    useEffect(() => {
+        setTime(availableTimes ? availableTimes[0] : null)
+        setLoading(false)
+      }, [availableTimes]);
 
     const getIsFormValid = () => date && time && guestNumber
 
@@ -30,8 +37,10 @@ const BookingForm = ({ getTimeSlots, availableTimes, submitForm }) => {
         if(value < currentDate || value > maxDate) {
             return setErrorMsg(`You must select between today and ${maxDate}`)
          }
-        setDay(value);
-        getTimeSlots(value)
+         setLoading(true);
+         setDay(value);
+         setTime(null);
+         getTimeSlots(value)
     };
 
     const handleGuestNumberChange = (e) => {
@@ -52,15 +61,17 @@ const BookingForm = ({ getTimeSlots, availableTimes, submitForm }) => {
 
     let availableTimesMissingMsg = false
 
-    if (typeof availableTimes == "string") {
-        availableTimesMissingMsg = <span>(availableTimes)</span>
+    if (availableTimes === null || loading) {
+        availableTimesMissingMsg = "Loading available time slots.."
+    } else if (typeof availableTimes == "string") {
+        availableTimesMissingMsg = availableTimes
     } else if (!availableTimes.length) {
         const msgSuffix = date === currentDate ? 'today' : date
 
-        availableTimesMissingMsg = <span>Sorry, we are fully booked for {msgSuffix}!</span>
+        availableTimesMissingMsg = `Sorry, we are fully booked for ${msgSuffix}!`
     }
 
-    let availableTimesHtml = availableTimesMissingMsg
+    let availableTimesHtml = <span>{availableTimesMissingMsg}</span>
     if (!availableTimesMissingMsg) {
         availableTimesHtml =
             <select id="time" value={time} onChange={(e) => setTime(e.target.value)}>
