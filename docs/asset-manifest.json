@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.898ce925.css",
+    "main.js": "/static/js/main.dfabb26c.js",
+    "static/js/787.db354b39.chunk.js": "/static/js/787.db354b39.chunk.js",
+    "static/media/404.png": "/static/media/404.d8daabb3ee7357045cc5.png",
+    "static/media/reserved.png": "/static/media/reserved.6afdc1037f0b3bc18b39.png",
+    "static/media/bruchetta.jpg": "/static/media/bruchetta.d54e450bda5efcf06010.jpg",
+    "static/media/restaurantfood.jpg": "/static/media/restaurantfood.8a03f3cfcba06753143f.jpg",
+    "static/media/MarkaziText-Medium.ttf": "/static/media/MarkaziText-Medium.87cba2b77542cbdc769d.ttf",
+    "static/media/Mario_and_Adrian.jpg": "/static/media/Mario_and_Adrian.b4ff294ac6c2507f0e4e.jpg",
+    "static/media/Reviewer2.png": "/static/media/Reviewer2.0543f555a6a065ff7eab.png",
+    "static/media/Reviewer4.png": "/static/media/Reviewer4.f14799b7967f670e33de.png",
+    "static/media/Reviewer3.png": "/static/media/Reviewer3.ad757523c65352ca247b.png",
+    "static/media/Reviewer1.png": "/static/media/Reviewer1.b84cd6e32bff46ffaf6b.png",
+    "static/media/salad.jpg": "/static/media/salad.b15db00f25b0791582e3.jpg",
+    "static/media/restaurant.jpg": "/static/media/restaurant.a93b18625de32f341a95.jpg",
+    "static/media/logo.svg": "/static/media/logo.6c132dfefa69396bba43f72aa595e62f.svg",
+    "static/media/Karla-Regular.ttf": "/static/media/Karla-Regular.f950111be01b92a807ba.ttf",
+    "static/media/logo-footer.png": "/static/media/logo-footer.ed56c9bfa034662fd796.png",
+    "index.html": "/index.html",
+    "main.898ce925.css.map": "/static/css/main.898ce925.css.map",
+    "main.dfabb26c.js.map": "/static/js/main.dfabb26c.js.map",
+    "787.db354b39.chunk.js.map": "/static/js/787.db354b39.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.898ce925.css",
+    "static/js/main.dfabb26c.js"
+  ]
+}
